@@ -13,17 +13,9 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class MessengerService {
-    private final HashMap<User, WebSocketSession> sessions = new HashMap<>();
+public class MessengerService { ;
     private final MessageRepository messageRepository;
 
-    //TODO: implement handshake handler
-    public void addSession(User user, WebSocketSession session) {
-        sessions.put(user, session);
-    }
-    public void removeSession(User user) {
-        sessions.remove(user);
-    }
     public void sendMessage(String message, User author, User recipient){
         messageRepository.save(new Message(message, author, recipient));
     }
